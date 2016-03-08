@@ -2,6 +2,7 @@ clear;close all;
 %Part (a)
 %read Image
 I = imread('histopath.jpg');
+[h,w,~] = size(I);
 %get red channel
 Ir = I(:,:,1);
 %display
@@ -48,14 +49,16 @@ L = labelmatrix(cc);
 stats = regionprops('table',reBWC,'Area',...
     'Centroid','Perimeter');
 
+
+
 %Part (e)
 data = regionprops(reBWC,'Orientation', 'MajorAxisLength', ...
-    'MinorAxisLength', 'Eccentricity', 'Centroid','PixelList');
+    'MinorAxisLength', 'Eccentricity', 'Centroid','PixelList','PixelIdxList');
 
 elli = zeros(1,length(data));
-elliarea = elli;
+
 for k = 1:length(data)
-   
+    
     %get major and minor axis length
     a = data(k).MajorAxisLength/2;
     b = data(k).MinorAxisLength/2;
@@ -64,7 +67,7 @@ for k = 1:length(data)
     
     xbar = data(k).Centroid(1);
     ybar = data(k).Centroid(2);
-    theta = pi*(data(k).Orientation)/180;
+    theta = pi*(-data(k).Orientation)/180;
     
     %for loop region points
     points = data(k).PixelList;

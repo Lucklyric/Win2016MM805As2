@@ -65,6 +65,7 @@ for k = 1:length(data)
     %ellipse area
     AreaEllipse = pi * a * b;
     
+    %rotate the line between the candidate point and the centroid
     xbar = data(k).Centroid(1);
     ybar = data(k).Centroid(2);
     theta = pi*(-data(k).Orientation)/180;

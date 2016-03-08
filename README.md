@@ -4,7 +4,12 @@
 
 ### Start
 
-In order to run the code please download the code and open the project folder in your Matlab. Then type in command line to run the script.
+In order to run the code please download the project or clone from the GitHub:
+``````
+git clone https://github.com/Lucklyric/Win2016MM805As2.git
+``````
+
+Open the project directory in your Matlab. Then type below codes in command window to run the script.
 
 ``````
 > m8105as2
